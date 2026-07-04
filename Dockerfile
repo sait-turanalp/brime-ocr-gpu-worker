@@ -20,6 +20,7 @@ ENV ORT_DYLIB_PATH=/usr/local/lib/python3.12/dist-packages/onnxruntime/capi/libo
 ENV LD_LIBRARY_PATH=/usr/local/lib/python3.12/dist-packages/tensorrt_libs:/usr/local/lib/python3.12/dist-packages/onnxruntime/capi:/usr/local/lib/python3.12/dist-packages/nvidia/cudnn/lib:/usr/local/cuda/lib64
 ENV WORKERS=1
 
+RUN cd /models && wget -q $R2/medium/det_ctx.onnx $R2/medium/rec_argmax_ctx.onnx || echo "ctx yok"
 COPY handler.py /handler.py
 COPY start.sh /start.sh
 CMD ["bash", "/start.sh"]
