@@ -18,7 +18,7 @@ RUN wget -qO /usr/local/bin/gpuserve $R2/gpuserve && chmod +x /usr/local/bin/gpu
 
 ENV ORT_DYLIB_PATH=/usr/local/lib/python3.12/dist-packages/onnxruntime/capi/libonnxruntime.so.1.24.4
 ENV LD_LIBRARY_PATH=/usr/local/lib/python3.12/dist-packages/tensorrt_libs:/usr/local/lib/python3.12/dist-packages/onnxruntime/capi:/usr/local/lib/python3.12/dist-packages/nvidia/cudnn/lib:/usr/local/cuda/lib64
-ENV WORKERS=2
+ENV WORKERS=1
 
 COPY handler.py /handler.py
 COPY start.sh /start.sh
